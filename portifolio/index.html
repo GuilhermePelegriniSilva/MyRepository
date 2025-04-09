@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Responsividade -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meu Portifólio</title>
+    <!-- Link para o CSS externo -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Importa a fonte Montserrat do Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Cabeçalho: Top-header com foto, nome e redes sociais; barra de navegação fixa -->
+    <header>
+      <div class="top-header">
+        <!-- Bloco esquerdo: foto e nome -->
+        <div class="left">
+          <img src="perfil-photo.jpg" id="photo" alt="Foto de Perfil" />
+          <span class="name">Guilherme Pelegrini da Silva</span>
+        </div>
+        <!-- Bloco direito: links para redes sociais (LinkedIn e GitHub, por exemplo) -->
+        <div class="right">
+          <a href="https://www.linkedin.com/in/guilherme-pelegrini-da-silva-b77a042b5/">
+            <img src="logo1.png" alt="LinkedIn" />
+          </a>
+          <a href="https://github.com/GuilhermePelegriniSilva">
+            <img src="logo2.png" alt="GitHub" />
+          </a>
+        </div>
+      </div>
+      <!-- Barra de navegação fixa -->
+      <nav>
+        <ul>
+          <li><a href="#sobre">Sobre Mim</a></li>
+          <li><a href="#habilidades">Habilidades</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+<br>
+      </nav>
+    </header>
+<br><br><br>
+    <!-- Seção: Sobre Mim -->
+    <section id="sobre" class="sobre">
+      <h2>Sobre Mim</h2>
+      <p>
+        Olá, sou Guilherme Pelegrini da Silva, apaixonado por programação desde os meus 9 anos. Hoje, como estudante de Engenharia de Software, estou sempre em busca de novas metodologias e linguagens para transformar desafios em oportunidades. Este portifólio é a vitrine da minha dedicação em aprender, testar novas ideias e inovar. Vamos juntos construir o futuro da tecnologia!
+      </p>
+    </section>
+
+    <!-- Seção: Habilidades -->
+    <section id="habilidades" class="habilidades">
+      <h2 class="titulo-arvore">Minha Árvore de Habilidades</h2>
+      <br><br><main class="arvore">
+        <!-- Grupo de habilidades já desenvolvidas -->
+        <div class="galho">
+          <div class="skill active">HTML</div>
+          <div class="skill active">CSS</div>
+          <div class="skill active">JavaScript</div>
+          <div class="skill active">Java</div>
+          <div class="skill active">Ruby</div>
+          <div class="skill active">Python</div>
+          <div class="skill active">C#</div>
+          <div class="skill active">Kotlin</div>
+          <!-- Usando uma quebra de linha para centralizar "Android Studio" -->
+          <div class="skill active">Android<br>Studio</div>
+          <div class="skill active">MySQL</div>
+          <div class="skill active">PostgreSQL</div>
+          <div class="skill active">Oracle SQL</div>
+          <div class="skill active">TDD</div>
+          <div class="skill active">Git</div>
+        </div>
+        <!-- Grupo de habilidades em evolução/futuras -->
+        <div class="galho future">
+          <div class="skill">NodeJS</div>
+          <div class="skill">React</div>
+          <div class="skill">TypeScript</div>
+          <div class="skill">Kubernetes</div>
+          <div class="skill">AWS</div>
+          <div class="skill">Microservices</div>
+          <div class="skill">GraphQL</div>
+        </div>
+      </main>
+      <!-- Legenda próxima à árvore de habilidades, centralizada e com fonte menor -->
+      <div class="legenda">
+        <p>
+          Legenda: As skills com fundo vermelho representam as desenvolvidas, enquanto as demais indicam áreas em evolução.
+        </p>
+      </div>
+    </section>
+
+    <!-- Seção: Projetos -->
+    <section id="projetos" class="projetos">
+      <h2>Projetos</h2>
+      <!-- Grid de projetos com imagens atualizadas conforme solicitado -->
+      <div class="project-grid">
+        <!-- Projeto 1: Gerador de Relatórios em Python -->
+        <div class="project-card">
+          <img src="relatoriopython.png" alt="Gerador de Relatórios em Python" />
+          <h3>Gerador de Relatórios em Python</h3>
+          <p>
+            Um sistema que automatiza a geração de relatórios, integrando dados de diversas fontes e permitindo análises dinâmicas, utilizando Python e PostgreSQL.
+          </p>
+          <a href="https://github.com/seuusuario/gerador-relatorios" target="_blank">Ver no GitHub</a>
+        </div>
+        <!-- Projeto 2: Árvore de Habilidades em Front End -->
+        <div class="project-card">
+          <img src="fotoarvoredehabilidades.jpg" alt="Árvore de Habilidades em Front End" />
+          <h3>Árvore de Habilidades em Front End</h3>
+          <p>
+            Um projeto interativo que exibe suas competências em Front End por meio de uma visualização em árvore, utilizando HTML, CSS e JavaScript para um layout responsivo.
+          </p>
+          <a href="https://github.com/seuusuario/arvore-front-end" target="_blank">Ver no GitHub</a>
+        </div>
+        <!-- Projeto 3: Calculadora de Juros para Android -->
+        <div class="project-card">
+          <img src="imagemcalculadora.png" alt="Calculadora de Juros para Android" />
+          <h3>Calculadora de Juros para Android</h3>
+          <p>
+            Um aplicativo Android desenvolvido em Android Studio com Java/Kotlin que calcula juros compostos, oferecendo uma interface intuitiva e interativa.
+          </p>
+          <a href="https://github.com/seuusuario/calculadora-juros" target="_blank">Ver no GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção: Depoimentos -->
+    <section id="depoimentos" class="depoimentos">
+      <h2>Depoimentos</h2>
+      <!-- Depoimento de Eduardo Santos -->
+      <div class="testimonial">
+        <p>
+          "Trabalha muito bem, um dos melhores que conheço, tanto profissionalmente quanto como pessoa."
+        </p>
+        <span>- Eduardo Santos, Sócio em empreendimento</span>
+      </div>
+      <!-- Depoimento do Copilot (comentário genuíno da IA) -->
+      <div class="testimonial">
+        <p>
+          "Sua capacidade de se adaptar, aprender rapidamente e inovar é impressionante. Sua paixão por tecnologia inspira toda a equipe."
+        </p>
+        <span>- IA Copilot</span>
+      </div>
+    </section>
+
+    <!-- Seção: Contato -->
+    <section id="contato" class="contato">
+      <h2>Contato</h2>
+      <p>Email: <a href="mailto:guilhermepelegrinidasilva@gmail.com">guilhermepelegrinidasilva@gmail.com</a></p>
+      <p>Telefone/WhatsApp: (18) 99688-8138</p>
+    </section>
+
+    <!-- Script para detectar a primeira skill de cada linha e evitar conectores "avulsos" -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Para cada grupo de skills (galho), detectar onde inicia uma nova linha
+        document.querySelectorAll(".galho").forEach(function (galho) {
+          let rows = [];
+          let skills = Array.from(galho.querySelectorAll(".skill"));
+          skills.forEach(function (skill) {
+            let top = Math.round(skill.getBoundingClientRect().top);
+            if (rows.length === 0 || Math.abs(top - rows[rows.length - 1]) > 5) {
+              rows.push(top);
+              skill.classList.add("first-in-row");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,401 @@
+/* =============================================================================
+   RESET E CONFIGURAÇÃO GERAL
+   ============================================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #F5F7FA; /* Fundo bem claro */
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* =============================================================================
+   VARIÁVEIS DE COR E ESTILO
+   ============================================================================= */
+:root {
+  --bg-color: #F5F7FA;
+  --header-bg: #2B2D42;         /* Azul marinho escuro */
+  --header-text: #EDF2F4;       /* Texto claro para o cabeçalho */
+  --skill-default-bg: #FFFFFF;  /* Fundo branco para os círculos de skill */
+  --skill-border: #8D99AE;      /* Borda azul acinzentada */
+  --skill-default-text: #2B2D42;
+  --skill-active-bg: #EF233C;   /* Vermelho marcante para skills ativas */
+  --skill-active-text: #FFFFFF;
+  --skill-hover-bg: #D90429;    /* Hover: vermelho um pouco mais intenso */
+  --connector: #8D99AE;         /* Cor dos conectores */
+  --beige-strong: #D2B48C;      /* Bege forte (tan) */
+  --intro-text-color: #5D4037;  /* Marrom escuro para o texto introdutório */
+}
+
+/* =============================================================================
+   CABEÇALHO E NAVEGAÇÃO
+   ============================================================================= */
+/* Cabeçalho fixo dividido em top-header e barra de navegação */
+header {
+  width: 100%;
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Bloco superior do cabeçalho: foto, nome e redes sociais */
+.top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+#photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.name {
+  font-size: 1em;
+  font-weight: 600;
+}
+
+/* Bloco de redes sociais */
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.right a {
+  margin-left: 15px;
+}
+
+.right img {
+  width: 40px;
+  height: 40px;
+}
+
+/* Barra de navegação */
+nav {
+  background-color: var(--header-bg);
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--header-text);
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: var(--skill-active-bg);
+}
+
+/* =============================================================================
+   SEÇÕES: SOBRE, HABILIDADES, PROJETOS, DEPOIMENTOS, CONTATO
+   ============================================================================= */
+/* Seção Sobre Mim */
+.sobre {
+  padding: 100px 20px 40px;
+  text-align: center;
+  background-color: var(--bg-color);
+}
+
+.sobre h2 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  color: var(--header-bg);
+}
+
+.sobre p {
+  font-size: 1em;
+  color: var(--intro-text-color);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Seção Habilidades */
+.habilidades {
+  padding: 40px 20px;
+}
+
+.titulo-arvore {
+  text-align: center;
+  font-size: 1.6em;
+  margin-bottom: 20px;
+  color: var(--header-bg);
+}
+
+/* =============================================================================
+   ÁRVORE DE HABILIDADES (GRUPOS DE SKILLS)
+   ============================================================================= */
+main.arvore {
+  width: 100%;
+  padding: 30px;
+}
+
+.arvore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Cada grupo (galho) de skills */
+.galho {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 0;
+}
+
+/* Conector vertical entre grupos de skills */
+.galho::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 80px;
+  background-color: var(--connector);
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -2;
+}
+
+.galho.future::before {
+  height: 140px;
+}
+
+/* =============================================================================
+   SKILLS (CÍRCULOS)
+   ============================================================================= */
+.skill {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-color: var(--skill-default-bg);
+  color: var(--skill-default-text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1em;
+  font-weight: 600;
+  margin: 12px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+  z-index: 1;
+  border: 2px solid var(--skill-border);
+}
+
+/* Exemplo: reduz a fonte para "Microservices" (6º item do grupo future) */
+.galho.future .skill:nth-child(6) {
+  font-size: 0.8em;
+}
+
+/* Conector horizontal entre skills */
+.skill + .skill::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -22px;
+  width: 22px;
+  height: 2px;
+  background-color: var(--connector);
+  transform: translateY(-50%);
+  z-index: -1;
+}
+
+/* Esconde o conector para a primeira skill de cada linha, detectada via script */
+.skill.first-in-row::before {
+  display: none;
+}
+
+.skill:hover {
+  transform: scale(1.2);
+  background-color: var(--skill-hover-bg);
+  color: var(--skill-active-text);
+}
+
+.skill.active {
+  background-color: var(--skill-active-bg);
+  color: var(--skill-active-text);
+}
+
+/* =============================================================================
+   PROJETOS
+   ============================================================================= */
+.projetos {
+  padding: 40px 20px;
+  background-color: var(--bg-color);
+  text-align: center;
+}
+
+.projetos h2 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  color: var(--header-bg);
+}
+
+/* Grid de projetos */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Cartão de projeto */
+.project-card {
+  background-color: #FFFFFF;
+  border: 2px solid var(--skill-border);
+  padding: 15px;
+  text-align: left;
+  transition: transform 0.3s;
+}
+
+.project-card:hover {
+  transform: scale(1.03);
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.project-card h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: var(--header-bg);
+}
+
+.project-card p {
+  font-size: 0.9em;
+  color: var(--skill-default-text);
+  margin-bottom: 10px;
+}
+
+.project-card a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--skill-active-bg);
+  transition: color 0.3s;
+}
+
+.project-card a:hover {
+  color: var(--skill-hover-bg);
+}
+
+/* =============================================================================
+   DEPOIMENTOS
+   ============================================================================= */
+.depoimentos {
+  padding: 40px 20px;
+  background-color: #FFFFFF;
+  text-align: center;
+}
+
+.depoimentos h2 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  color: var(--header-bg);
+}
+
+.testimonial {
+  max-width: 800px;
+  margin: 0 auto 20px;
+  padding: 20px;
+  border-left: 4px solid var(--header-bg);
+  font-style: italic;
+  color: var(--intro-text-color);
+}
+
+.testimonial span {
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
+  color: var(--header-bg);
+}
+
+/* =============================================================================
+   CONTATO
+   ============================================================================= */
+.contato {
+  padding: 40px 20px;
+  background-color: var(--bg-color);
+  text-align: center;
+}
+
+.contato h2 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  color: var(--header-bg);
+}
+
+.contato p {
+  font-size: 1em;
+  color: var(--skill-default-text);
+  margin-bottom: 10px;
+}
+
+/* =============================================================================
+   TEXTO INTRODUTÓRIO (SOBRE MIM)
+   ============================================================================= */
+.textoindrotudorio {
+  font-size: 16px;
+  background-color: var(--beige-strong);
+  color: var(--intro-text-color);
+  font-weight: bold;
+  padding: 20px;
+  text-align: justify;
+  width: 100%;
+}
+
+.textoindrotudorio h2 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* =============================================================================
+   RESPONSIVIDADE
+   ============================================================================= */
+@media (max-width: 600px) {
+  .skill + .skill::before {
+    display: none;
+  }
+}
+.project-card img {
+  height: 250px;         /* Define a altura fixa */
+  width: auto;           /* A largura se ajusta conforme a proporção da imagem */
+  object-fit: contain;   /* Garante que a imagem seja exibida inteira sem ser cortada */
+  display: block;
+  margin: 0 auto;        /* Centraliza a imagem horizontalmente */
+}

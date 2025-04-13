@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Juros</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="top-header">
+        <div class="left">
+          <img src="perfil-photo.jpg" id="photo" alt="Foto de Perfil" />
+          <span class="name">Guilherme Pelegrini da Silva</span>
+        </div>
+        <div class="right">
+          <a href="https://www.linkedin.com/in/guilherme-pelegrini-da-silva-b77a042b5/">
+            <img src="logo1.png" alt="LinkedIn" />
+          </a>
+          <a href="https://github.com/GuilhermePelegriniSilva">
+            <img src="logo2.png" alt="GitHub" />
+          </a>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#sobre">Sobre Mim</a></li>
+          <li><a href="#habilidades">Habilidades</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="calculadora">
+      <section id="calculadora" class="sobre">
+        <br><br><h2>Calculadora de Juros Compostos</h2>
+        <form id="calc-form">
+          <label>
+            Aporte Inicial:
+            <input type="number" id="aporteInicial" placeholder="Ex: 1000" />
+          </label><br />
+          <label>
+            Aporte Mensal:
+            <input type="number" id="aporteMensal" placeholder="Ex: 500" />
+          </label><br />
+          <label>
+            Taxa de Juros (% ao mês):
+            <input type="number" id="taxaJuros" placeholder="Ex: 2" />
+          </label><br />
+          <label>
+            Período (em meses):
+            <input type="number" id="meses" placeholder="Ex: 12" />
+          </label><br />
+          <button type="button" onclick="calcular()">Calcular</button>
+        </form>
+        <h3 id="resultado"></h3>
+      </section>
+    </main>
+
+    <script>
+      function calcular() {
+        const aporteInicial = parseFloat(document.getElementById("aporteInicial").value) || 0;
+        const aporteMensal = parseFloat(document.getElementById("aporteMensal").value) || 0;
+        const taxaJuros = parseFloat(document.getElementById("taxaJuros").value) || 0;
+        const meses = parseInt(document.getElementById("meses").value) || 0;
+
+        let saldo = aporteInicial;
+
+        for (let i = 0; i < meses; i++) {
+          saldo += aporteMensal;
+          saldo *= 1 + taxaJuros / 100;
+        }
+
+        document.getElementById("resultado").innerText = `Valor Final: R$ ${saldo.toFixed(2)}`;
+      }
+    </script>
+  </body>
+</html>

@@ -1,5 +1,15 @@
 document.getElementById("cadastroForm").addEventListener("submit", function(event) {
     event.preventDefault();
-    document.getElementById("mensagemFeedback").textContent = "Cadastro realizado com sucesso!";
-    document.getElementById("mensagemFeedback").style.color = "green";
+
+    let nome = document.getElementById("nome").value;
+    let preco = document.getElementById("preco").value;
+    let descricao = document.getElementById("descricao").value;
+
+    if (nome === "" || preco === "" || descricao === "") {
+        document.getElementById("mensagemFeedback").textContent = "Erro: Todos os campos devem ser preenchidos!";
+        document.getElementById("mensagemFeedback").style.color = "red";
+    } else {
+        document.getElementById("mensagemFeedback").textContent = "Cadastro realizado com sucesso!";
+        document.getElementById("mensagemFeedback").style.color = "green";
+    }
 });
